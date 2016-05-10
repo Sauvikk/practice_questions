@@ -32,6 +32,6 @@ class Solution:
 arr1 = [1, 2, 3]
 arr2 = [2, 3]
 res = Solution.solution(arr1, arr2)
-print(res, res)
+print(res)
 
 

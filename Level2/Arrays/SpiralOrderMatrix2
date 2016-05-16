@@ -1,0 +1,42 @@
+class Solution:
+
+  @staticmethod
+  def solution(n):
+        top = 0
+        bottom = n-1
+        left = 0
+        right = n-1
+        dict = 0
+        res = [[0]*n for _ in range(n)]
+        count = 0
+
+        while top <= bottom and left <= right:
+            if dict == 0:
+                for i in range(left, right+1):
+                    count += 1
+                    res[top][i] = count
+                top += 1
+                dict = 1
+            if dict == 1:
+                for i in range(top, bottom+1):
+                    count += 1
+                    res[i][right] = count
+                right -= 1
+                dict = 2
+            if dict == 2:
+                for i in range(right, left-1, -1):
+                    count += 1
+                    res[bottom][i] = count
+                bottom -= 1
+                dict = 3
+            if dict == 3:
+                for i in range(bottom, top-1, -1):
+                    count += 1
+                    res[i][left] = count
+                left += 1
+                dict = 0
+        return res
+
+a = 80
+res = Solution.solution(a)
+print(res)

@@ -1,0 +1,50 @@
+# Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
+#
+# You should preserve the original relative order of the nodes in each of the two partitions.
+#
+# For example,
+# Given 1->4->3->2->5->2 and x = 3,
+# return 1->2->2->4->3->5.
+
+
+from Level4.LinkedLists.LinkedList import LinkedList, Node
+
+
+class Solution:
+
+  @staticmethod
+  def solution(head, x):
+        if not head:
+            return None
+
+        dummyHead1 = Node(0)
+        dummyHead2 = Node(0)
+
+        dummyHead1.next = head
+        curr = head
+        prev = dummyHead1
+        temp = dummyHead2
+
+        while curr:
+            if curr.val < x:
+                curr = curr.next
+                prev = prev.next
+            else:
+                temp.next = curr
+                prev.next = curr.next
+                curr = prev.next
+                temp = temp.next
+        temp.next = None    
+        prev.next = dummyHead2.next
+        return dummyHead1.next
+
+A = LinkedList()
+A.add(0)
+A.add(5)
+A.add(2)
+A.add(3)
+A.add(4)
+A.add(1)
+A.print()
+res = Solution.solution(A.get_root(), 1)
+LinkedList.print_any(res)

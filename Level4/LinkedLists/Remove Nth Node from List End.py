@@ -18,24 +18,21 @@ class Solution:
 
   @staticmethod
   def solution(head, n):
-        if n == 0 or head is None:
+        if head is None:
             return None
-        curr = Node(0)
-        curr.next = head
-        firstP = curr
-        secondP = curr
-
-        for i in xrange(0, n+1):
-            if firstP:
-                firstP = firstP.next
-            else:
+        temp = head
+        for i in range(n):
+            if temp.next is None:
                 head = head.next
                 return head
-        while firstP:
-            firstP = firstP.next
-            secondP = secondP.next
-        secondP.next = secondP.next.next
-        return curr.next
+            else:
+                temp = temp.next
+        last = head
+        while temp.next:
+            temp = temp.next
+            last = last.next
+        last.next = last.next.next
+        return head
 
 A = LinkedList()
 A.add(5)
@@ -44,6 +41,6 @@ A.add(3)
 A.add(2)
 A.add(1)
 A.print()
-res = Solution.solution(A.get_root(), 5)
+res = Solution.solution(A.get_root(), 2)
 LinkedList.print_any(res)
 

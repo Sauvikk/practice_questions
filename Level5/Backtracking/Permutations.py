@@ -20,6 +20,7 @@ class Solution:
   def permute(self, numbers, start, result):
         if start == len(numbers):
             result.append([x for x in numbers])
+            # result.append(numbers)
             return
         for i in range(start, len(numbers)):
             numbers[start], numbers[i] = numbers[i], numbers[start]

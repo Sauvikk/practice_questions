@@ -41,5 +41,5 @@ class Solution:
         self.dfs(numbers, 0, k, temp, result)
         return result
 
-res1 = Solution().solution(4, 2)
+res1 = Solution().solution(3, 2)
 print(res1)

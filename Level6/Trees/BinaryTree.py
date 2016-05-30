@@ -3,14 +3,14 @@
 
 
 class Node:
-    def __init__(self, info):  # constructor of class
-        self.val = info  # information for node
+    def __init__(self, val):  # constructor of class
+        self.val = val  # information for node
         self.left = None  # left leef
         self.right = None  # right leef
         self.level = None  # level none defined
 
-    def __str__(self):
-        return str(self.val)  # return as string
+    # def __str__(self):
+    #     return str(self.val)  # return as string
 
 
 class BinaryTree:
@@ -48,7 +48,7 @@ class BinaryTree:
             if current_node.level > current_level:
                 current_level += 1
                 out.append("\n")
-            out.append(str(current_node.info) + " ")
+            out.append(str(current_node.val) + " ")
             if current_node.left:
                 current_node.left.level = current_level + 1
                 queue.append(current_node.left)
@@ -60,12 +60,12 @@ class BinaryTree:
     def in_order(self, node):
         if node is not None:
             self.in_order(node.left)
-            print(node.info)
+            print(node.val)
             self.in_order(node.right)
 
     def pre_order(self, node):
         if node is not None:
-            print(node.info)
+            print(node.val)
             self.pre_order(node.left)
             self.pre_order(node.right)
 
@@ -73,4 +73,4 @@ class BinaryTree:
         if node is not None:
             self.post_order(node.left)
             self.post_order(node.right)
-            print(node.info)
+            print(node.val)

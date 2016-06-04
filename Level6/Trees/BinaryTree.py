@@ -8,6 +8,7 @@ class Node:
         self.left = None  # left leef
         self.right = None  # right leef
         self.level = None  # level none defined
+        self.next = None
 
     # def __str__(self):
     #     return str(self.val)  # return as string

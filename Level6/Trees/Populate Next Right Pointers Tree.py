@@ -32,7 +32,7 @@
 # Note 2: The tree need not be a perfect binary tree.
 
 
-from Level6.Trees.BinaryTree import BinaryTree, Node
+from collections import deque
 
 
 class Solution:
@@ -53,7 +53,7 @@ class Solution:
             if len(current_level) == 0:
                 if temp:
                     if len(temp) == 1:
-                        temp[0]
+                        temp[0].next = None
                     for i in range(0, len(temp)-1):
                         temp[i].next = temp[i+1]
                     temp[-1].next = None

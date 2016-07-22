@@ -13,9 +13,7 @@ class Solution:
   @staticmethod
   def solution(path):
         stack = []
-        print(path)
         path = path.split('/')
-        print(path)
         for a in path:
             if a == '..':
                 if len(stack) > 0:

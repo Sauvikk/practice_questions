@@ -17,13 +17,13 @@ class Solution:
         if not head:
             return None
 
-        dummyHead1 = Node(0)
-        dummyHead2 = Node(0)
+        less_than_pointer = Node(0)
+        greater_than_pointer = Node(0)
 
-        dummyHead1.next = head
+        less_than_pointer.next = head
         curr = head
-        prev = dummyHead1
-        temp = dummyHead2
+        prev = less_than_pointer
+        temp = greater_than_pointer
 
         while curr:
             if curr.val < x:
@@ -35,8 +35,8 @@ class Solution:
                 curr = prev.next
                 temp = temp.next
         temp.next = None    
-        prev.next = dummyHead2.next
-        return dummyHead1.next
+        prev.next = greater_than_pointer.next
+        return less_than_pointer.next
 
 A = LinkedList()
 A.add(0)

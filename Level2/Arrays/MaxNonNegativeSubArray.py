@@ -3,7 +3,7 @@ class Solution:
   @staticmethod
   def solution(a):
         curr_sum = 0
-        max_sum = 0
+        max_so_far = 0
         start = 0
         end = 0
         startmax = -1
@@ -12,11 +12,11 @@ class Solution:
         for end in range(len(a)):
             if a[end] >= 0:
                 curr_sum += a[end]
-                if curr_sum > max_sum:
-                    max_sum = curr_sum
+                if curr_sum > max_so_far:
+                    max_so_far = curr_sum
                     startmax = start
                     endmax = end+1
-                elif curr_sum == max_sum:
+                elif curr_sum == max_so_far:
                     if (end+1-start) > (endmax-startmax):
                         startmax = start
                         endmax = end+1

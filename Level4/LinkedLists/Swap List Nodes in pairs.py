@@ -12,19 +12,21 @@ from Level4.LinkedLists.LinkedList import LinkedList, Node
 
 class Solution:
 
-  @staticmethod
-  def solution(head):
-        dummy_head = ListNode(0)
+    @staticmethod
+    def solution(head):
+        dummy_head = Node(0)
         dummy_head.next = head
-        curr = dummy_head
-        while curr.next and curr.next.next:
-            n1 = curr.next
-            n2 = curr.next.next
-            n1.next = n2.next
-            n2.next = n1
-            curr.next = n2
-            curr = n1
+        current = dummy_head
+        while current.next and current.next.next:
+            current.next = Solution.swap(current.next, current.next.next)
+            current = current.next.next
         return dummy_head.next
+
+    @staticmethod
+    def swap(node1, node2):
+        node1.next = node2.next
+        node2.next = node1
+        return node2
 
 A = LinkedList()
 A.add(0)

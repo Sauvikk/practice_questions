@@ -44,9 +44,7 @@ class Solution:
             fast = fast.next.next
             prevSlow = slow
             slow = slow.next
-        mid = None
         if fast:
-            mid = slow
             slow = slow.next
         second = slow
         prevSlow.next = None
